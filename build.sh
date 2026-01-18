@@ -47,7 +47,9 @@ main() {
 
   # Install Post CSS
   echo "Installing PostCSS..."
-  npm install -g --no-fund --no-audit postcss postcss-cli autoprefixer
+  echo "Installing PostCSS..."
+  npm ci --no-fund --no-audit || npm install --no-fund --no-audit
+  export PATH="$(pwd)/node_modules/.bin:${PATH}"
 
   # Verify installations
   echo "Verifying installations..."
@@ -55,6 +57,9 @@ main() {
   echo Go: "$(go version)"
   echo Hugo: "$(hugo version)"
   echo Node.js: "$(node --version)"
+  echo "PostCSS: $(command -v postcss || true)"
+  postcss --version
+
 
   # Configure Git
   echo "Configuring Git..."
