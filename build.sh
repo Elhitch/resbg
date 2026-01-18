@@ -14,7 +14,7 @@ main() {
   HUGO_VERSION=0.154.4
   NODE_VERSION=24.12.0
 
-  export TZ=Europe/Oslo
+  export TZ=Europe/Sofia
 
   # Install Dart Sass
   echo "Installing Dart Sass ${DART_SASS_VERSION}..."
@@ -44,6 +44,10 @@ main() {
   tar -C "${HOME}/.local" -xf "node-v${NODE_VERSION}-linux-x64.tar.xz"
   rm "node-v${NODE_VERSION}-linux-x64.tar.xz"
   export PATH="${HOME}/.local/node-v${NODE_VERSION}-linux-x64/bin:${PATH}"
+
+  # Install Post CSS
+  echo "Installing PostCSS..."
+  npm install -g --no-fund --no-audit postcss postcss-cli autoprefixer
 
   # Verify installations
   echo "Verifying installations..."
