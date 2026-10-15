@@ -1,11 +1,11 @@
 baseURL = 'https://resbg.org/'
-languageCode = 'bg-bg'
+locale = 'bg-BG'
+defaultContentLanguage = 'bg'
 title = 'Ingress Resistance Bulgaria'
 theme = 'tailbliss'
 [params]
     Moto = 'Обединени в съпротива. По-силни заедно.'
     Description = 'Ingress Prime (или просто Ingress) е игра в добавена реалност за мобилни устройства, в която две организации се борят за контрол над портали, излъчващи екзотична материя. Ние сме Съпротивата и се борим да защитим свободата на човечеството от манипулация от непозната сила. Присъедини се към нас и ни помогни да победим!'
-    Disable_theme_toggle = true
     Disable_blog = true
     Disable_stay_uptodate = true
     Social_media.Discord.Enabled = true

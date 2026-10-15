@@ -1,0 +1,24 @@
+<section class="lg:pb-24">
+  <div class="px-4 mx-auto max-w-screen-md">
+    <p class="mb-8 font-light text-center text-gray-300 lg:mb-16 sm:text-xl">
+      Имате въпрос или искате да се свържете с нас? Изпратете ни съобщение.
+    </p>
+    <form name="contact" action="https://formsubmit.co/your@email.com" method="POST" class="space-y-8">
+      <div class="my-4">
+        <label for="email" class="block mb-2 font-medium text-gray-50 text-md"><strong>Вашият имейл:</strong></label>
+        <input id="email" type="email" name="email" autocomplete="email" class="block p-2.5 w-full text-white bg-gray-700 rounded-lg border border-gray-600 shadow-sm placeholder:text-gray-300 text-md focus:ring-indigo-500 focus:border-indigo-500" placeholder="name@example.com" required>
+      </div>
+      <div class="my-4">
+        <label for="subject" class="block mb-2 font-medium text-gray-50 text-md"><strong>Тема:</strong></label>
+        <input id="subject" type="text" name="subject" class="block p-2.5 w-full text-white bg-gray-700 rounded-lg border border-gray-600 shadow-sm placeholder:text-gray-300 text-md focus:ring-indigo-500 focus:border-indigo-500" placeholder="Как можем да помогнем?" required>
+      </div>
+      <div class="my-4 sm:col-span-2">
+        <label for="message" class="block mb-2 font-medium text-gray-50 text-md"><strong>Съобщение:</strong></label>
+        <textarea id="message" name="message" rows="6" class="block p-2.5 w-full text-white bg-gray-700 rounded-lg border border-gray-600 shadow-sm placeholder:text-gray-300 text-md focus:ring-indigo-500 focus:border-indigo-500" placeholder="Напишете съобщението си..." required></textarea>
+      </div>
+      <div class="mt-6 lg:pb-16">
+        <button type="submit" class="px-5 py-3 font-bold text-center text-white bg-indigo-600 rounded-lg text-md sm:w-fit hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-indigo-800">Изпрати</button>
+      </div>
+    </form>
+  </div>
+</section>

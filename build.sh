@@ -4,15 +4,16 @@
 # @file
 # Builds a Hugo site hosted on a Cloudflare Worker.
 #
-# The Cloudflare Worker automatically installs Node.js dependencies.
+# Use the pinned Node.js toolchain and lockfile for repeatable CSS builds.
 #------------------------------------------------------------------------------
 
 main() {
 
-  DART_SASS_VERSION=1.97.2
-  GO_VERSION=1.25.5
-  HUGO_VERSION=0.154.4
-  NODE_VERSION=24.12.0
+  DART_SASS_VERSION=1.105.1
+  GO_VERSION=1.26.4
+  HUGO_VERSION=0.168.0
+  NODE_VERSION=24.21.0
+  NPM_VERSION=11.21.1
 
   export TZ=Europe/Sofia
 
@@ -45,10 +46,11 @@ main() {
   rm "node-v${NODE_VERSION}-linux-x64.tar.xz"
   export PATH="${HOME}/.local/node-v${NODE_VERSION}-linux-x64/bin:${PATH}"
 
-  # Install Post CSS
+  # Keep npm's lockfile handling consistent with the version used to refresh package-lock.json.
+  npm install --global "npm@${NPM_VERSION}" --no-audit --no-fund
+
   echo "Installing PostCSS..."
-  echo "Installing PostCSS..."
-  npm ci --no-fund --no-audit || npm install --no-fund --no-audit
+  npm ci --no-fund --no-audit
   export PATH="$(pwd)/node_modules/.bin:${PATH}"
 
   # Verify installations
@@ -59,6 +61,9 @@ main() {
   echo Node.js: "$(node --version)"
   echo "PostCSS: $(command -v postcss || true)"
   postcss --version
+
+  # Compile Tailwind before Hugo so local Hugo builds do not need to spawn Node.
+  npm run build:css
 
 
   # Configure Git

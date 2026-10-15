@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "build:css": "postcss themes/tailbliss/assets/css/main.css --output static/css/site.css && node scripts/fix-tailwind-base-layer.js static/css/site.css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,9 +19,9 @@
   "homepage": "https://github.com/Elhitch/resbg#readme",
   "description": "",
   "devDependencies": {
-    "@tailwindcss/postcss": "^4.1.18",
-    "autoprefixer": "^10.4.23",
-    "postcss": "^8.5.6",
-    "postcss-cli": "^11.0.1"
+    "@tailwindcss/postcss": "^4.3.3",
+    "autoprefixer": "^10.6.1",
+    "postcss": "^8.5.30",
+    "postcss-cli": "^12.0.0"
   }
 }
